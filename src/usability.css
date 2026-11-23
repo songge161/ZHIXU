@@ -1,0 +1,98 @@
+/* Common work stays visible; secondary tools expand when needed. */
+.daily-action-column { display: grid; gap: 20px; align-content: start; min-width: 0; }
+.unscheduled-panel { padding: 24px; }
+.unscheduled-panel .section-heading { margin-bottom: 8px; }
+.unscheduled-panel .task-row:last-child { border-bottom: 0; }
+.detail-tool-section { border: 1px solid var(--border); border-radius: 12px; background: #fff; margin-top: 14px; }
+.detail-tool-section > summary { cursor: pointer; padding: 18px 22px; color: #465f49; font-size: 14px; font-weight: 500; }
+.detail-tool-section > summary:focus-visible { outline: 2px solid #65876c; outline-offset: -4px; border-radius: 10px; }
+.detail-tool-body { padding: 0 20px 20px; }
+.detail-tool-body > .panel { border: 0; padding: 16px 0; margin: 0; box-shadow: none; }
+.detail-tool-body > .panel + .panel { border-top: 1px solid var(--border); }
+.detail-action-row > .text-link { min-height: 40px; display: inline-flex; align-items: center; padding-inline: 4px; }
+.space-detail-page > .detail-section { margin-top: 24px; }
+.space-detail-page > .detail-section .detail-empty { padding: 18px; }
+.workspace, .main-shell, .work-grid > *, .settings-grid > *, .page-heading > div, .detail-progress, .detail-summary-side { min-width: 0; }
+.page-heading { flex-wrap: wrap; }
+.page-heading h1, .detail-breadcrumbs, .detail-summary-side strong, .task-row strong, .future-task strong, .review-card h2, .ai-connection-row small { overflow-wrap: anywhere; }
+.space-detail-summary { grid-template-columns: minmax(120px, .65fr) minmax(0, 1fr) minmax(0, 1.15fr); gap: 22px; }
+.breadcrumbs { min-width: 0; }
+.breadcrumbs strong { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.topbar-right { flex-shrink: 0; }
+.modal { max-height: calc(100vh - 28px); max-height: calc(100dvh - 28px); max-width: calc(100vw - 24px); }
+.modal-actions { flex-wrap: wrap; }
+.optional-form-section { border: 1px solid #e2e8db; border-radius: 10px; margin-top: 18px; }
+.optional-form-section > summary { padding: 14px 16px; cursor: pointer; color: #536b55; font-size: 13px; }
+.optional-form-section > summary:focus-visible { outline: 2px solid #65876c; outline-offset: -3px; }
+.optional-form-body { padding: 0 16px 16px; }
+.modal-form .optional-form-body > label { display: block; margin: 16px 0 8px; }
+.optional-form-body .inline-actions { margin-top: 12px; flex-wrap: wrap; }
+@media (max-width: 1100px) {
+  .space-detail-summary { grid-template-columns: 130px minmax(0, 1fr); }
+  .detail-summary-side { grid-column: 1 / -1; border-left: 0; border-top: 1px solid #dbe5d2; padding: 14px 0 0; }
+  .task-state-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .task-state-row > strong, .task-state-row > small { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+  .detail-tool-section > summary { padding: 16px 18px; }
+  .detail-tool-body { padding: 0 16px 16px; }
+  .unscheduled-panel { padding: 20px 18px; }
+  .space-detail-summary { grid-template-columns: minmax(0, 1fr); }
+  .page-heading .inline-actions { gap: 8px; flex-wrap: wrap; }
+  .task-row > .text-link { flex-shrink: 0; min-height: 40px; padding: 8px 0; }
+}
+
+:root {
+  --readable-muted: #52634e;
+  --text-caption: 12px;
+  --text-body: 14px;
+}
+.skip-link { position: fixed; top: .5rem; left: .5rem; z-index: 120; transform: translateY(-180%); padding: .7rem 1rem; background: white; color: #28492d; border-radius: 6px; }
+.skip-link:focus { transform: none; }
+.drawer-close { position: absolute; top: 12px; right: 8px; min-width: 44px; min-height: 44px; }
+.workspace-footer, .portal-footer, .breadcrumbs, .breadcrumbs .crumb-slash, .detail-breadcrumbs, .detail-breadcrumbs a,
+.local-summary p, .local-summary > .small, .task-row label > span, .task-duration, .panel-footnote, .help-text, .sidebar-bottom small {
+  color: var(--readable-muted); font-size: var(--text-caption);
+}
+.workspace-footer, .portal-footer { flex-wrap: wrap; }
+.schedule-month-cell .schedule-month-entry, .schedule-month-cell .schedule-month-entry-copy,
+.schedule-month-cell .schedule-month-entry-copy strong, .schedule-month-cell .schedule-month-entry-copy small {
+  font-size: var(--text-caption); opacity: 1;
+}
+.schedule-entry button.text-link, .schedule-special-panel button.text-link { min-height: 32px; min-width: 36px; }
+.toast-undo { color: inherit; text-decoration: underline; background: transparent; border: 0; white-space: nowrap; }
+.modal-form [aria-invalid=true] { outline: 2px solid #964525; }
+.task-row strong { font-size: var(--text-body); }
+@media (max-width: 760px) {
+  .schedule-entry button.text-link, .schedule-special-panel button.text-link, .task-row label {
+    min-height: 44px; min-width: 44px;
+  }
+}
+
+.material-references { display: grid; gap: 6px; max-height: 180px; overflow-y: auto; margin-block: 8px; }
+.material-card > .text-link { margin: 10px 12px 0 0; }
+.material-card > div > .material-excerpt { min-height: 0; }
+.material-questions .library-answer { margin: 14px 0 0; padding: 12px 16px; border-left: 3px solid #779681; background: #f3f6f0; }
+
+.planning-source-excerpt { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; margin: 4px 0 12px; }
+
+.library-tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 18px; }
+.library-tools [aria-expanded="true"] { border-color: var(--green); color: var(--green); }
+.guide-setup { display: block; font-size: var(--text-caption); color: var(--readable-muted); }
+.guide-setup a, .material-questions .help-text a { text-decoration: underline; }
+
+.tiny-badge, .demo-label, .material-meta, .count-pill, .nav-label, .add-row, .back-portal,
+.prototype-badge, .ai-compose-foot span, .directory-box p, .prototype-note p, .path-examples,
+.path-examples code, .path-examples small, .portal-section .section-number,
+.library-local, .upload-area p, .upload-area small { color: var(--readable-muted); }
+.upload-area small { font-size: var(--text-caption); }
+
+:root { --action-height: 32px; }
+.back-portal, .task-duration, .text-link, .toast-undo, .workspace details > summary {
+  min-height: var(--action-height);
+}
+a.text-link { display: inline-flex; align-items: center; }
+.record-actions .text-link { min-width: var(--action-height); }
+@media (max-width: 760px) {
+  :root { --action-height: 44px; }
+}

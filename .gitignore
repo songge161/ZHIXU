@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env*
+!.env.example
+test-results/
+playwright-report/
+output/
+.DS_Store
+
+# local-only API key notes
+doc/AI-存储key.md
